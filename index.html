@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For You ❤️</title>
+
+  <style>
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+
+      font-family: Arial, sans-serif;
+
+      overflow: hidden;
+
+    }
+
+    .card {
+
+      width: 90%;
+
+      max-width: 430px;
+
+      padding: 35px 25px;
+
+      text-align: center;
+
+      background: rgba(255,255,255,0.9);
+
+      border-radius: 25px;
+
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+      position: relative;
+
+      z-index: 2;
+
+    }
+
+    .heart {
+
+      font-size: 70px;
+
+      animation: beat 1.2s infinite;
+
+    }
+
+    h1 {
+
+      color: #e91e63;
+
+      margin-bottom: 10px;
+
+    }
+
+    p {
+
+      color: #555;
+
+      line-height: 1.7;
+
+      font-size: 16px;
+
+    }
+
+    button {
+
+      margin-top: 15px;
+
+      padding: 14px 25px;
+
+      border: none;
+
+      border-radius: 30px;
+
+      background: #e91e63;
+
+      color: white;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+    }
+
+    button:hover {
+
+      transform: scale(1.07);
+
+      background: #c2185b;
+
+    }
+
+    #secret {
+
+      display: none;
+
+      margin-top: 20px;
+
+      padding: 18px;
+
+      background: #fff0f6;
+
+      border-radius: 15px;
+
+      color: #d81b60;
+
+      font-weight: bold;
+
+    }
+
+    .floating-heart {
+
+      position: absolute;
+
+      bottom: -30px;
+
+      font-size: 25px;
+
+      animation: float 7s linear infinite;
+
+      opacity: 0.7;
+
+    }
+
+    @keyframes beat {
+
+      0%, 100% { transform: scale(1); }
+
+      50% { transform: scale(1.15); }
+
+    }
+
+    @keyframes float {
+
+      0% {
+
+        transform: translateY(0);
+
+        opacity: 0;
+
+      }
+
+      20% {
+
+        opacity: 0.8;
+
+      }
+
+      100% {
+
+        transform: translateY(-110vh) rotate(360deg);
+
+        opacity: 0;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>For My Favorite Person</h1>
+
+    <p>
+
+      I wanted to make something special for you,
+
+      because the message you gave me on my birthday
+
+      really meant a lot to me. ❤️
+
+    </p>
+
+    <p>
+
+      So this little page is just a tiny way of saying:
+
+      thank you for making my day so special.
+
+    </p>
+
+    <button onclick="showSecret()">
+
+      Click me ❤️
+
+    </button>
+
+    <div id="secret">
+
+      You are one of the most beautiful parts of my life.
+
+      <br><br>
+
+      And I hope I can make you smile
+
+      just like you made me smile. ❤️
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function showSecret() {
+
+      document.getElementById("secret").style.display = "block";
+
+    }
+
+    function createHeart() {
+
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.animationDuration = (5 + Math.random() * 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+
+        heart.remove();
+
+      }, 9000);
+
+    }
+
+    setInterval(createHeart, 700);
+
+  </script>
+
+</body>
+
+</html>
